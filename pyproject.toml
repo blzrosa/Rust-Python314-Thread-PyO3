@@ -2,21 +2,26 @@
 requires = ["maturin>=1.10.2,<2.0"]
 build-backend = "maturin"
 
-[tool.maturin]
-module-name = "rustkit_learning._backend"
-manifest-path = "_backend/Cargo.toml"
-
 [project]
 name = "rustkit_learning"
-version = "0.1.0"
+version = "0.1.1"
 description = "A modern rust implemented and type aware replacement for scikit-learning"
 readme = "README.md"
 requires-python = ">=3.14"
+
 dependencies = [
     "bokeh>=3.8.1",
     "numpy>=2.3.5",
+]
+
+[dependency-groups]
+dev = [
     "ruff>=0.14.7",
 ]
+
+[tool.maturin]
+module-name = "rustkit_learning._backend"
+manifest-path = "_backend/Cargo.toml"
 
 [tool.uv]
 cache-keys = [
@@ -24,3 +29,19 @@ cache-keys = [
   { file = "_backend/Cargo.toml" },
   { file = "_backend/**.rs" }
 ]
+
+[tool.ruff]
+target-version = "py314"
+
+[tool.ruff.lint]
+select = ["E", "F", "B","I"]
+fixable = ["ALL"]
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401", "E402"]
+"**/{tests,docs,tools}/*" = ["E402"]
+
+[tool.ruff.format]
+quote-style = "double"
+

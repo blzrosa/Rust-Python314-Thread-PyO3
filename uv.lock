@@ -289,12 +289,20 @@ dependencies = [
     { name = "ruff" },
 ]
 
+[package.dev-dependencies]
+dev = [
+    { name = "ruff" },
+]
+
 [package.metadata]
 requires-dist = [
     { name = "bokeh", specifier = ">=3.8.1" },
     { name = "numpy", specifier = ">=2.3.5" },
     { name = "ruff", specifier = ">=0.14.7" },
 ]
+
+[package.metadata.requires-dev]
+dev = [{ name = "ruff", specifier = ">=0.14.7" }]
 
 [[package]]
 name = "six"

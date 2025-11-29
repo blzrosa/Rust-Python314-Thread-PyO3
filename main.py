@@ -1,6 +1,7 @@
 from rustkit_learning._backend import custom_add
 
-def main():
+
+def main() -> None:
     print("Hello from rustkit-learning!")
     print(custom_add(10, 10))
 
