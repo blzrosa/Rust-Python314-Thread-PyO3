@@ -12,8 +12,12 @@ dependencies = [
     "numpy>=2.3.5",
 ]
 
-[project.optional-dependencies]
-dev = ["ruff>=0.14.7"]
+[dependency-groups]
+dev = [
+    "pre-commit>=4.5.0",
+    "pyright[nodejs]>=1.1.407",
+    "ruff>=0.14.7",
+]
 
 [tool.maturin]
 module-name = "rustkit_learning._backend"
@@ -41,3 +45,9 @@ dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 [tool.ruff.format]
 quote-style = "double"
 
+
+[tool.pyright]
+exclude = [".venv"]
+pythonVersion = "3.14"
+venvPath = "."
+venv = ".venv"
