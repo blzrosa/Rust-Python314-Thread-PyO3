@@ -8,16 +8,12 @@ version = "0.1.1"
 description = "A modern rust implemented and type aware replacement for scikit-learning"
 readme = "README.md"
 requires-python = ">=3.14"
-
 dependencies = [
-    "bokeh>=3.8.1",
     "numpy>=2.3.5",
 ]
 
-[dependency-groups]
-dev = [
-    "ruff>=0.14.7",
-]
+[project.optional-dependencies]
+dev = ["ruff>=0.14.7"]
 
 [tool.maturin]
 module-name = "rustkit_learning._backend"
